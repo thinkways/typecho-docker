@@ -18,6 +18,7 @@ if(dbcheckconn($config)){
         $pdo = dbexist($config);
         $pdo->exec("CREATE EXTENSION IF NOT EXISTS pg_trgm");
         unset($pdo);
+    }
 }
 
 function env($name, $default = null)
