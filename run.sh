@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
-php-fpm&
+php-fpm7&
 
 nginx 
