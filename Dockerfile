@@ -20,6 +20,11 @@ RUN chmod +x /plugins.sh && \
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
+# Expose default database credentials via ENV in order to ease overwriting
+ENV DB_NAME typecho
+ENV DB_USER typecho
+ENV DB_PASS typecho
+
 COPY config_postgres.php /config_postgres.php
 RUN php /config_postgres.php
 
