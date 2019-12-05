@@ -16,12 +16,6 @@ if(dbcheckconn($config)){
         $pdo -> exec('CREATE DATABASE ' . ($config['DB_NAME']) . ' WITH OWNER ' . ($config['DB_USER']));
         unset($pdo);
         $pdo = dbexist($config);
-        try {
-            $pdo->query('SELECT 1 FROM ttrss_feeds');
-        }
-        catch (PDOException $e) {
-            echo 'Database table not found ' . PHP_EOL;  
-        }
         $pdo->exec("CREATE EXTENSION IF NOT EXISTS pg_trgm");
         unset($pdo);
 }
