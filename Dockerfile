@@ -1,9 +1,11 @@
-FROM php:7.2.10-fpm-alpine3.8
+FROM alpine:3.10
 LABEL maintainer="i@indexyz.me"
 
-RUN apk --update --no-cache add nginx git unzip wget curl-dev libcurl postgresql-libs postgresql-dev&& \
-  docker-php-ext-install pdo pdo_mysql pdo_pgsql mbstring bcmath curl && \
-  apk del postgresql-dev && \
+RUN apk --update --no-cache add nginx git unzip wget curl-dev libcurl \
+  php7 php7-intl php7-fpm php7-cli php7-curl php7-fileinfo \
+  php7-mbstring php7-gd php7-json php7-dom php7-pcntl php7-posix \
+  php7-pgsql php7-mcrypt php7-session php7-pdo php7-pdo_pgsql \
+  ca-certificates && rm -rf /var/cache/apk/* && \
   mkdir -p /var/www && \
   wget http://typecho.org/build.tar.gz -O typecho.tgz && \
   tar zxvf typecho.tgz && \
