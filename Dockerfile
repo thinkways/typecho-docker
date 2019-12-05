@@ -10,7 +10,6 @@ RUN apk --update --no-cache add nginx git unzip wget curl-dev libcurl \
   wget http://typecho.org/build.tar.gz -O typecho.tgz && \
   tar zxvf typecho.tgz && \
   mv build/* /var/www && \
-  chmod -R 755 /var/www && \
   rm -f typecho.tgz 
 
 COPY plugins.sh /plugins.sh
@@ -29,6 +28,6 @@ ENV DB_PASS typecho
 COPY config_postgres.php /config_postgres.php
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
-ENTRYPOINT [ "sh", "/run.sh" ]
 
 CMD php /config_postgres.php
+ENTRYPOINT [ "sh", "/run.sh" ]
