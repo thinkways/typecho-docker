@@ -27,5 +27,5 @@ COPY config_postgres.php /config_postgres.php
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
-CMD php /config_postgres.php
 ENTRYPOINT [ "sh", "/run.sh" ]
+RUN php /config_postgres.php
