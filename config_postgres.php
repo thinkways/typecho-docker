@@ -1,6 +1,5 @@
 #!/usr/bin/env php
 <?php
-$confpath = '/var/www/config.php';
 $config = array();
 $config['DB_HOST'] = env('DB_HOST', 'postgres');
 $config['DB_PORT'] = env('DB_PORT', 5432);
@@ -8,6 +7,7 @@ $config['DB_NAME'] = env('DB_NAME', 'typecho');
 $config['DB_USER'] = env('DB_USER');
 $config['DB_PASS'] = env('DB_PASS');
 $config['SINGLE_USER_MODE'] = env('SINGLE_USER_MODE', false);
+
 if(dbcheckconn($config)){
     $pdo = dbconnect($config);
     if(!dbcheckdb($config)){
