@@ -28,4 +28,4 @@ COPY config_postgres.php /config_postgres.php
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 ENTRYPOINT [ "sh", "/run.sh" ]
-RUN php /config_postgres.php
+RUN chmod 777 /config_postgres.php && php /config_postgres.php
