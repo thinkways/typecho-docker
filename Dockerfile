@@ -20,9 +20,8 @@ RUN chmod +x /plugins.sh && \
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
-ADD config_postgres.php /config_postgres.php
+COPY config_postgres.php /config_postgres.php
+RUN php /config_postgres.php
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
 ENTRYPOINT [ "sh", "/run.sh" ]
-
-CMD php /config_postgres.php
