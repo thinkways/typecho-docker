@@ -24,7 +24,7 @@ ENV DB_USER typecho
 ENV DB_PASS typecho
 
 COPY config_postgres.php /config_postgres.php
-RUN php /config_postgres.php
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
-ENTRYPOINT [ "sh", "/run.sh" ]
+
+CMD sh /run.sh && php /config_postgres.php
