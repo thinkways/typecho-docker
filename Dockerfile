@@ -27,4 +27,4 @@ COPY config_postgres.php /config_postgres.php
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
-CMD sh /run.sh && php /config_postgres.php
+CMD sh /run.sh && /usr/local/bin/php /config_postgres.php
